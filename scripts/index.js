@@ -90,3 +90,15 @@ function notTv(char){
     return noTvCount;
 }
 console.log(`There are ${notTv(characters)} characters that are NOT in the TV Series.`)
+
+function Targaryen(char){
+    newArray = []
+    char.forEach(function(person){
+        //if the search expression not matched, returns neg 1
+        if (person.name.search("Targaryen") !== -1) {
+            newArray.push(person.name);
+        }
+    })
+    return newArray;
+}
+console.log(`These ${Targaryen(characters).length} people are Targaryens ${Targaryen(characters)}.`)
