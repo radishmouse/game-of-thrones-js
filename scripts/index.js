@@ -55,7 +55,13 @@ console.log(whoIsValyrian(characters));
 
 // What actor plays "Hot Pie" (and don't use IMDB)?
 
-
+function whoIsHotPie(chars) {
+    const him = chars.filter(function (each) {
+        return each.name === 'Hot Pie';
+    })
+    return him[0].playedBy;
+}
+console.log(whoIsHotPie(characters))
 
 // How many characters are *not* in the tv show?
 
