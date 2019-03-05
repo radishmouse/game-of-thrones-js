@@ -58,5 +58,21 @@ function valyrianCount(char){
 }
 console.log(`There are ${valyrianCount(characters)} characters who are part of the Valyrian Culture.`);
 
-    // if person['name'] == 'Hot Pie':
-    //     actor = person['playedBy'][0]
+function hotPie(char){
+    //playedBy is an array...
+    allActors = ""
+    char.forEach(function(person){
+        if (person.name === "Hot Pie") {
+            // console.log(person.playedBy);
+            person.playedBy.forEach(function(actors){
+                // console.log(actors);
+                allActors += actors;
+                // console.log(allActors);
+            })
+            
+        }
+    });
+    return allActors;
+
+}
+console.log(`The character Hot Pie is played by ${hotPie(characters)}.`);
