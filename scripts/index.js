@@ -32,8 +32,36 @@ function mostTitles(arr) {
     let mostTitles = arr.sort(function(characterA, characterB) {
         return characterB.titles.length - characterA.titles.length;
     })
-    return mostTitles[0].name;
+    return mostTitles[0];
+}
+console.log(mostTitles(characters));
+
+// How many are Valyrian?
+
+function valyrian(arr) {
+    let valyrianCharacters = arr.filter(person => {
+        return person.culture === 'Valyrian';
+    })
+    return valyrianCharacters;
 }
 
+// Which actor plays "Hot Pie"?
+
+function findHotPie(arr) {
+    let hotPie = arr.filter(person => {
+        return person.name === 'Hot Pie';
+    })
+    return hotPie[0].playedBy[0];
+}
+console.log(findHotPie(characters));
+
+// How many characters are not in the TV show?
+
+function notInTvShow(arr) {
+    let notTv = arr.filter(person => {
+        return person.tvSeries.length > 1;
+    })
+    return notTv;
+}
 
 
