@@ -45,6 +45,13 @@ console.log(mostTitles(characters))
 
 // How many are Valyrian?
 
+function whoIsValyrian(chars) {
+    const vals = chars.filter(function (each) {
+        return each.culture === 'Valyrian';
+    })
+    return vals.length;
+}
+console.log(whoIsValyrian(characters));
 
 // What actor plays "Hot Pie" (and don't use IMDB)?
 
