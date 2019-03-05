@@ -10,7 +10,7 @@ function beginsWithLetter(char,letter){
             count += 1;
             // console.log(person.name)
         }
-    })
+    });
     return count;
 }
 console.log(`There are ${beginsWithLetter(characters,"A")} characters with names beginning with A`);
@@ -22,11 +22,13 @@ function deadCount(char){
         if (person.died !== "") {
             count += 1;
         }
-    })
+    });
     return count;
 }
 
 console.log(`There are ${deadCount(characters)} dead characters.`)
+
+//who has the most titles 
 
 function mostTitles(char){
     let highTitleCount = 0;
@@ -39,4 +41,22 @@ function mostTitles(char){
     });
     return [mostTitles , highTitleCount];
 }
-console.log(`The character with the most titles is ${mostTitles(characters)[0]}.  He has ${mostTitles(characters)[1]}.`)
+console.log(`The character with the most titles is ${mostTitles(characters)[0]}.  He has ${mostTitles(characters)[1]}.`);
+
+
+//valyrian
+
+function valyrianCount(char){
+    let valyrianCount = 0;
+    char.forEach(function(person){
+        if (person.culture === "Valyrian") {
+            valyrianCount += 1;  
+        }
+    });
+    //number of people with 'Valyrian' listed in their culture 
+    return valyrianCount;  
+}
+console.log(`There are ${valyrianCount(characters)} characters who are part of the Valyrian Culture.`);
+
+    // if person['name'] == 'Hot Pie':
+    //     actor = person['playedBy'][0]
