@@ -34,7 +34,6 @@ function mostTitles(arr) {
     })
     return mostTitles[0];
 }
-console.log(mostTitles(characters));
 
 // How many are Valyrian?
 
@@ -53,7 +52,6 @@ function findHotPie(arr) {
     })
     return hotPie[0].playedBy[0];
 }
-console.log(findHotPie(characters));
 
 // How many characters are not in the TV show?
 
@@ -63,5 +61,20 @@ function notInTvShow(arr) {
     })
     return notTv;
 }
+
+// Produce a list of characters with the last name "Targaryen"
+
+function targaryens(arr) {
+
+    let targaryens = arr.filter(function(person) {
+        let firstLast = person.name.split(" ");
+        return firstLast[firstLast.length - 1] === 'Targaryen';
+    })
+    return targaryens;
+}
+
+console.log(targaryens(characters));
+
+
 
 
