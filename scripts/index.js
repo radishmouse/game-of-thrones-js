@@ -102,3 +102,19 @@ function Targaryen(char){
     return newArray;
 }
 console.log(`These ${Targaryen(characters).length} people are Targaryens ${Targaryen(characters)}.`)
+
+// console.log(houses);
+
+houseHist = {};  //empty dictionary
+function houseCount(char){
+     char.forEach(function(person){
+         if (person.allegiances != "") {
+            houseHist[(houses[person.allegiances])] ? houseHist[(houses[person.allegiances])] += 1: houseHist[(houses[person.allegiances])] =1; 
+
+         }
+    })
+}
+houseCount(characters);
+//a list of all the alligiances summed by house.  alligiance url converted to house  name based on previous python  dictionary created
+console.log(houseHist);
+
