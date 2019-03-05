@@ -57,7 +57,7 @@ function findHotPie(arr) {
 
 function notInTvShow(arr) {
     let notTv = arr.filter(person => {
-        return person.tvSeries.length > 1;
+        return person.tvSeries.length === 1;
     })
     return notTv;
 }
@@ -73,8 +73,53 @@ function targaryens(arr) {
     return targaryens;
 }
 
-console.log(targaryens(characters));
+// Create a histogram of the houses (it's the allegiances key)
+// LONG WAY
+// function allegiances(arr) {
+//     // create array with just allegiances
+//     let allegiances = arr.map(function(person) {
+//         return person.allegiances;
+//     })
+//     return allegiances;
+// }
 
+// function everyAllegiance(allegianceArr) {
+//     let singleAllegiance = [];
+//     allegianceArr.forEach(allegiances => {
+//         allegiances.forEach(allegiance => {
+//             singleAllegiance.push(allegiance);
+//         })
+//     })
+//     return singleAllegiance;
+// }
 
+// function allegianceHistogram(allegiances) {
+//     let histogram = {};
+//     allegiances.forEach(function(allegiance) {
+//         if (histogram[allegiance]) {
+//             histogram[allegiance] += 1;
+//         } else {
+//             histogram[allegiance] = 1;
+//         }
+//     })
+//     return histogram;
+// }
+
+// console.log(allegianceHistogram(everyAllegiance(allegiances(characters))));
+// SHORT WAY
+function allegiancesClean(arr) {
+    let histogram = {};
+    arr.forEach(person => {
+        person.allegiances.forEach(allegiance => {
+            if (histogram[allegiance]) {
+                histogram[allegiance] += 1;
+            } else {
+                histogram[allegiance] = 1;
+            }
+        })
+    })
+    return histogram;
+}
+console.log(allegiancesClean(characters));
 
 
