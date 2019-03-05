@@ -58,14 +58,20 @@ console.log(whoIsValyrian(characters));
 function whoIsHotPie(chars) {
     const him = chars.filter(function (each) {
         return each.name === 'Hot Pie';
-    })
+    });
     return him[0].playedBy;
 }
 console.log(whoIsHotPie(characters))
 
 // How many characters are *not* in the tv show?
 
-
+function notOnTv(chars) {
+    const num = chars.filter(function (each) {
+        return each.tvSeries.length === 1 && each.tvSeries[0] === ""
+    });
+    return num.length;
+}
+console.log(notOnTv(characters));
 
 // Produce a list characters with the last name "Targaryen"
 
