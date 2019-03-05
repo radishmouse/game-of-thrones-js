@@ -76,3 +76,17 @@ function hotPie(char){
 
 }
 console.log(`The character Hot Pie is played by ${hotPie(characters)}.`);
+
+//how many characters are not in the tv series
+//tv series is an array.  ['season1','season2']
+//if they aren't in the tv series, the data is [""]
+function notTv(char){
+    let noTvCount = 0;
+    char.forEach(function(person){
+        if ((person.tvSeries.length == 1) && (person.tvSeries[0].length == 0)) {
+            noTvCount += 1;
+        }
+    })
+    return noTvCount;
+}
+console.log(`There are ${notTv(characters)} characters that are NOT in the TV Series.`)
