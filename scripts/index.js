@@ -75,7 +75,16 @@ console.log(notOnTv(characters));
 
 // Produce a list characters with the last name "Targaryen"
 
-
+function whoIsTarg(chars) {
+    const targ = chars.filter(function (each) {
+        return each.name.includes('Targaryen');
+    })
+    const nameOnly = targ.map(function (each) {
+        return each.name
+    });
+    return nameOnly;
+}
+console.log(whoIsTarg(characters));
 
 // Create a histogram of the houses (it's the "allegiances" key)
 
