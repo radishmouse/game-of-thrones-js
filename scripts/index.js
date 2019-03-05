@@ -15,3 +15,15 @@ function beginsWithLetter(char,letter){
 }
 console.log(`There are ${beginsWithLetter(characters,"A")} characters with names beginning with A`);
 console.log(`There are ${beginsWithLetter(characters,"Z")} characters with names beginning with Z`);
+
+function deadCount(char){
+    let count = 0;
+    char.forEach(function(person){
+        if (person.died !== "") {
+            count += 1;
+        }
+    })
+    return count;
+}
+
+console.log(`There are ${deadCount(characters)} dead characters.`)
