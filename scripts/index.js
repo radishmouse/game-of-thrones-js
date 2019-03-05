@@ -2,7 +2,17 @@ console.log(`There are ${characters.length} characters in the array.`);
 
 // How many characters names start with "A"?
 
+function namesWithA(chars) {
+    const aNames = chars.filter(function (each) {
+        return each.name[0] === 'A';
+    });
+    const nameOnly = aNames.map(function (each) {
+        return each.name
+    });
 
+    return nameOnly;
+}
+console.log(namesWithA(characters))
 
 // How many characters names start with "Z"?
 
