@@ -27,3 +27,16 @@ function deadCount(char){
 }
 
 console.log(`There are ${deadCount(characters)} dead characters.`)
+
+function mostTitles(char){
+    let highTitleCount = 0;
+    let mostTitles = ""
+    char.forEach(function(person){
+        if (person.titles.length > highTitleCount) {
+            mostTitles = person.name;
+            highTitleCount = person.titles.length;
+        }
+    });
+    return [mostTitles , highTitleCount];
+}
+console.log(`The character with the most titles is ${mostTitles(characters)[0]}.  He has ${mostTitles(characters)[1]}.`)
