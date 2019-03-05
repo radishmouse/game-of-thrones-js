@@ -31,15 +31,19 @@ function deadCharacters(chars) {
     });
     return dead.length;
 }
-
 console.log(deadCharacters(characters));
 
 // Who has the most titles?
 
-
+function mostTitles(chars) {
+    const highToLow = chars.sort(function (a, b) {
+        return b.titles.length - a.titles.length;
+    });
+    return highToLow[0].name;
+}
+console.log(mostTitles(characters))
 
 // How many are Valyrian?
-
 
 
 // What actor plays "Hot Pie" (and don't use IMDB)?
