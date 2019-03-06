@@ -44,3 +44,14 @@ function whoHasTitles(){
 }
 
 // console.log(whoHasTitles())
+
+function howManyCulture(title){
+    let results = 0;
+    characters.forEach(function(charObj){
+        if (charObj.culture === title){
+            results += 1;
+        }
+    })
+    return results
+}
+// console.log(howManyCulture("Valyrian"))
