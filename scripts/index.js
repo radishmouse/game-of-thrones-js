@@ -55,3 +55,15 @@ function howManyCulture(title){
     return results
 }
 // console.log(howManyCulture("Valyrian"))
+
+
+function whoPlayed(character){
+    let result = ''
+    characters.forEach(function(charObj){
+        if (charObj.name === character) {
+            result = charObj.playedBy;
+        }
+    })
+    return result
+}
+console.log(whoPlayed("Hot Pie"))
