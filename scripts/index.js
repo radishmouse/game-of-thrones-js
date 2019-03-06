@@ -3,33 +3,27 @@ console.log(`There are ${characters.length} characters in the array.`);
 // How many characters names start with "A"?
 
 function namesWithA(chars) {
-    const aNames = chars.filter(function (each) {
+    return chars.filter(function (each) {
         return each.name[0] === 'A';
-    });
-    // const nameOnly = aNames.map(function (each) {
-    //     return each.name
-    // });
-    return aNames.length;
+    }).length;
 }
 console.log(namesWithA(characters))
 
 // How many characters names start with "Z"?
 
 function namesWithZ(chars) {
-    const zNames = chars.filter(function (each) {
+    return chars.filter(function (each) {
         return each.name[0] === 'Z';
-    });
-    return zNames.length;
+    }).length;
 }
 console.log(namesWithZ(characters))
 
 // How many characters are dead?
 
 function deadCharacters(chars) {
-    const dead = chars.filter(function (each) {
+    return chars.filter(function (each) {
         return each.died;
-    });
-    return dead.length;
+    }).length;
 }
 console.log(deadCharacters(characters));
 
@@ -46,10 +40,9 @@ console.log(mostTitles(characters))
 // How many are Valyrian?
 
 function whoIsValyrian(chars) {
-    const vals = chars.filter(function (each) {
+    return chars.filter(function (each) {
         return each.culture === 'Valyrian';
-    })
-    return vals.length;
+    }).length;
 }
 console.log(whoIsValyrian(characters));
 
@@ -66,10 +59,9 @@ console.log(whoIsHotPie(characters))
 // How many characters are *not* in the tv show?
 
 function notOnTv(chars) {
-    const num = chars.filter(function (each) {
+    return chars.filter(function (each) {
         return each.tvSeries.length === 1 && each.tvSeries[0] === ""
-    });
-    return num.length;
+    }).length;
 }
 console.log(notOnTv(characters));
 
@@ -79,10 +71,9 @@ function whoIsTarg(chars) {
     const targ = chars.filter(function (each) {
         return each.name.includes('Targaryen');
     })
-    const nameOnly = targ.map(function (each) {
+    return targ.map(function (each) {
         return each.name
     });
-    return nameOnly;
 }
 console.log(whoIsTarg(characters));
 
@@ -114,9 +105,9 @@ function housesMaster(chars) {
     });
     // return histo;
     
-    sortable =  Object.entries(histo);
+    // sortable =  Object.entries(histo);
 
-    return sortable.sort(function(a, b) {
+    return Object.entries(histo).sort(function(a, b) {
         return b[1] - a[1];
     })
 
