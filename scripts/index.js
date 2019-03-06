@@ -59,7 +59,7 @@ function whoIsHotPie(chars) {
     const him = chars.filter(function (each) {
         return each.name === 'Hot Pie';
     });
-    return him[0].playedBy;
+    return him[0].playedBy[0];
 }
 console.log(whoIsHotPie(characters))
 
