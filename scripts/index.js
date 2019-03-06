@@ -60,7 +60,7 @@ console.log(`There are ${valyrianCount(characters)} characters who are part of t
 
 function hotPie(char){
     //playedBy is an array...
-    allActors = ""
+    allActors = "";
     char.forEach(function(person){
         if (person.name === "Hot Pie") {
             // console.log(person.playedBy);
@@ -68,7 +68,7 @@ function hotPie(char){
                 // console.log(actors);
                 allActors += actors;
                 // console.log(allActors);
-            })
+            });
             
         }
     });
@@ -98,7 +98,7 @@ function Targaryen(char){
         if (person.name.search("Targaryen") !== -1) {
             newArray.push(person.name);
         }
-    })
+    });
     return newArray;
 }
 console.log(`These ${Targaryen(characters).length} people are Targaryens ${Targaryen(characters)}.`)
@@ -112,7 +112,7 @@ function houseCount(char){
             houseHist[(houses[person.allegiances])] ? houseHist[(houses[person.allegiances])] += 1: houseHist[(houses[person.allegiances])] =1; 
 
          }
-    })
+    });
 }
 houseCount(characters);
 //a list of all the alligiances summed by house.  alligiance url converted to house  name based on previous python  dictionary created
