@@ -77,6 +77,17 @@ function hotPie(char){
 }
 console.log(`The character Hot Pie is played by ${hotPie(characters)}.`);
 
+function hotPieFilter(char){
+   return char.filter(function(person){
+        if (person.name === "Hot Pie"){
+            
+            return person;
+        }
+    });
+}
+
+console.log(hotPieFilter(characters));
+
 //how many characters are not in the tv series
 //tv series is an array.  ['season1','season2']
 //if they aren't in the tv series, the data is [""]
@@ -101,20 +112,50 @@ function Targaryen(char){
     });
     return newArray;
 }
-console.log(`These ${Targaryen(characters).length} people are Targaryens ${Targaryen(characters)}.`)
+console.log(`These ${Targaryen(characters).length} people are Targaryens ${Targaryen(characters)}.`);
 
 // console.log(houses);
 
-houseHist = {};  //empty dictionary
+const houseHist = {};  //empty dictionary
 function houseCount(char){
      char.forEach(function(person){
          if (person.allegiances != "") {
-            houseHist[(houses[person.allegiances])] ? houseHist[(houses[person.allegiances])] += 1: houseHist[(houses[person.allegiances])] =1; 
+            //if the house does not exist in my houseHist dictionary, add it and set it equal to 1.  otherwise, increment it by one.
+            houseHist[(houses[person.allegiances])] ? houseHist[(houses[person.allegiances])] += 1: houseHist[(houses[person.allegiances])] = 1; 
 
          }
     });
 }
 houseCount(characters);
 //a list of all the alligiances summed by house.  alligiance url converted to house  name based on previous python  dictionary created
+
 console.log(houseHist);
 
+//rewrite house histogram with the es6 Map prototype functionality.
+
+//this is more accurate becaue I was only looking at the first house in allegiances, i think
+function houseHistMap(char){
+    const houseHist2 = new Map();       //call the Map constructor
+    char.forEach(function(person){
+        person.allegiances.forEach(function(house){
+            //if the hosue already in map, we increment,
+            //else add it to Map setting value to 1
+            // console.log(person)
+            // console.log(house)
+            if (houseHist2.has(houses[house])) {
+                // increment.  reset value for the key
+                //get the new value
+                const currentValue = houseHist2.get(houses[house]);
+                houseHist2.set(houses[house],currentValue+1);
+            }
+            else {
+                //set to one
+                houseHist2.set(houses[house],1);
+            }
+            // houseHist2[(houses[person.allegiances])]
+        });
+
+        });
+        return houseHist2;
+}
+console.log(houseHistMap(characters));
