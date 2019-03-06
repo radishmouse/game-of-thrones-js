@@ -90,14 +90,22 @@ console.log(whoIsTarg(characters));
 
 function housesMaster(chars) {
     let histo = {}
-    let houses = []
+    let uniqueHouses = []
     let allegiances = chars.map(function (each) {
-        return each.allegiances;
-        })
+            return each.allegiances
+    })
 
     // return allegiances;
 
-    allegiances.forEach(function (ea) {
+    allegiances.forEach(function (groupOfHouses) {
+        groupOfHouses.forEach(function (indyHouse){
+            uniqueHouses.push(indyHouse);
+        })
+    })
+
+    // return uniqueHouses;
+
+    uniqueHouses.forEach(function (ea) {
         if (histo.hasOwnProperty(ea)) {
             histo[ea] += 1;
         } else {
@@ -105,12 +113,13 @@ function housesMaster(chars) {
         }
     });
     // return histo;
-    // let arr = Object.keys(histo).map(function(key){
-    //     return [Number(key), histo[key]];
-    // })
-    // return arr; 
-    let arr = Object.entries(histo);
-    return arr;
+    
+    sortable =  Object.entries(histo);
+
+    return sortable.sort(function(a, b) {
+        return b[1] - a[1];
+    })
+
 }
 
 console.log(housesMaster(characters));
