@@ -36,20 +36,20 @@
 
 // // How many characters are dead?
 
-function dead(characters) {
-    let nameDead = [];
-    let count = 0;
-    characters.forEach(function (array) {
-        if (array.died === "") {
-            nameDead.push(array.name);
-            count += 1;
-        }
-    });
-    console.log(nameDead);
-    console.log(count);
-}
+// function dead(characters) {
+//     let nameDead = [];
+//     let count = 0;
+//     characters.forEach(function (array) {
+//         if (array.died != "") {
+//             nameDead.push(array.name);
+//             count += 1;
+//         }
+//     });
+//     console.log(nameDead);
+//     console.log(count);
+// }
 
-dead(characters);
+// dead(characters);
 
 // // Who has the most titles?
 
