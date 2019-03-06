@@ -99,7 +99,7 @@ function housesMaster(chars) {
 
     allegiances.forEach(function (groupOfHouses) {
         groupOfHouses.forEach(function (indyHouse){
-            uniqueHouses.push(indyHouse);
+            uniqueHouses.push(houses[indyHouse]);
         })
     })
 
