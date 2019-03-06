@@ -120,6 +120,6 @@ function allegiancesClean(arr) {
     })
     return histogram;
 }
-console.log(allegiancesClean(characters));
+let allegianceUrlHistogram = allegiancesClean(characters);
 
 
