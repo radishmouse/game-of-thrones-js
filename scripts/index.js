@@ -106,7 +106,7 @@ function housesMaster(chars) {
     // return histo;
     
     // sortable =  Object.entries(histo);
-
+    // sorting over to make it highest to lowest
     return Object.entries(histo).sort(function(a, b) {
         return b[1] - a[1];
     })
@@ -114,3 +114,52 @@ function housesMaster(chars) {
 }
 
 console.log(housesMaster(characters));
+
+// *********************************
+// Chris version of histogram
+// *********************************
+
+function createHouseHistogram(chars) {
+    const histogram = {};
+
+    // count allegiances by house (which will be a URL)
+    // console.log(chars[0].allegiances);
+    chars.forEach(function (person) {
+        // console.log(person.allegiances)
+        person.allegiances.forEach(function (house) {
+            if (histogram[house]) {
+                histogram[house] += 1;
+            } else {
+                histogram[house] = 1;
+            }
+        });
+    })
+
+    return histogram;
+}
+
+console.log(createHouseHistogram(characters));
+
+function createHouseHistogram2(chars) {
+    const histogram = new Map(); // call the map constructor
+    chars.forEach(function (person) {
+        person.allegiances.forEach(function (house) {
+            // if house is already in map
+            if (histogram.has(house)) {
+                //// increment
+                //// get current value
+                // const currentValue = histogram.get(house);
+                //// re-set new value
+                // histogram.set(house, currentValue + 1)
+                histogram.set(house, histogram.get(house) + 1)
+            } else {
+                // add it to the map, with value at 1
+                histogram.set(house, 1);
+            }
+        });
+    });
+
+    return histogram;
+}
+
+console.log(createHouseHistogram2(characters));
