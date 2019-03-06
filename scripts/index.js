@@ -104,8 +104,13 @@ function housesMaster(chars) {
             histo[ea] = 1
         }
     });
-    return histo;
-
-
+    // return histo;
+    // let arr = Object.keys(histo).map(function(key){
+    //     return [Number(key), histo[key]];
+    // })
+    // return arr; 
+    let arr = Object.entries(histo);
+    return arr;
 }
+
 console.log(housesMaster(characters));
