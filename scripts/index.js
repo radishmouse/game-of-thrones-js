@@ -93,3 +93,27 @@ function whosLastName(nameStr){
 }
 
 // console.log(whosLastName("Targaryen"))
+
+function histogramFun(){
+    let results = {};
+    let result = '';
+    characters.forEach(function(charObj){
+        charObj.allegiances.forEach(function(alStr){
+            for (let i = (alStr.length - 1); i > alStr.length - 6; i--){
+                if ("1234567890".includes(alStr[i])){
+                    result = alStr[i] + result;
+                }
+            }
+            if (Object.keys(results).includes(result)){
+                results[result] += 1
+            } else{
+                results[result] = 1;
+                
+            }
+            console.log(result)
+            result = '';
+        })
+    })
+    return results;
+}
+console.log(histogramFun())
