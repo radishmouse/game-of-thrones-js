@@ -66,4 +66,17 @@ function whoPlayed(character){
     })
     return result;
 }
-console.log(whoPlayed("Hot Pie"))
+// console.log(whoPlayed("Hot Pie"))
+
+
+function notOnTV(){
+    let result = 0;
+    characters.forEach(function(charObj){
+        if (charObj.tvSeries[0].length === 0) {
+            result += 1;
+        }
+    })
+    return result;
+}
+
+// console.log(notOnTV())
