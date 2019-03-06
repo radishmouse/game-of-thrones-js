@@ -80,3 +80,16 @@ function notOnTV(){
 }
 
 // console.log(notOnTV())
+
+function whosLastName(nameStr){
+    let results = [];
+    characters.forEach(function(charObj){
+        names = charObj.name.split(" ");
+        if (names[1] === nameStr){
+            results.push(charObj.name);
+        }
+    })
+    return results;
+}
+
+// console.log(whosLastName("Targaryen"))
