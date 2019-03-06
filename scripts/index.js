@@ -24,3 +24,23 @@ function howManyDead(){
 }
 // console.log(howManyDead())
 
+function whoHasTitles(){
+    let result = [];
+    let results = 0;
+    characters.forEach(function(charObj){
+        if (charObj.titles.length > results){
+            results = charObj.titles.length;
+            result = [charObj.name];
+        }
+    })
+    characters.forEach(function(charObj){
+        if (charObj.titles.length === results){
+            if (charObj.name !== result[0]){
+                result.push(charObj.name);
+            }
+        }
+    })
+    return result;
+}
+
+// console.log(whoHasTitles())
