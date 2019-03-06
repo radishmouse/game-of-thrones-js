@@ -88,4 +88,24 @@ console.log(whoIsTarg(characters));
 
 // Create a histogram of the houses (it's the "allegiances" key)
 
+function housesMaster(chars) {
+    let histo = {}
+    let houses = []
+    let allegiances = chars.map(function (each) {
+        return each.allegiances;
+        })
 
+    // return allegiances;
+
+    allegiances.forEach(function (ea) {
+        if (histo.hasOwnProperty(ea)) {
+            histo[ea] += 1;
+        } else {
+            histo[ea] = 1
+        }
+    });
+    return histo;
+
+
+}
+console.log(housesMaster(characters));
