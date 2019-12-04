@@ -17,6 +17,8 @@ console.log(`There are ${getNumberOfANames(characters)} characters with a name t
 // works :)
 // Got confused as to what exactly reduce does. Needed to go look up syntax
 
+
+// below code was trying to make bind work to get any character starting letter>
 // function isAnyLetterName(totalAnyNames, currentCharObj, character) {
 //     if (currentCharObj.name[0] === character) {
 //         totalAnyNames += 1;
@@ -50,5 +52,25 @@ function getNumberOfZNames(characterObj) {
 console.log(`There are ${getNumberOfZNames(characters)} characters with a name that starts with "Z" in the array.`);
 
 // works :)
-// Doesn't work for every character like I wanted it to. I need to work on writing big reduce functions to understand how to mess with them. Also work on bind and function expression as shown above to be able to change reduce to work with many modified helper functions
+// Doesn't work for every character like I wanted it to. I need to work on writing out long hand reduce functions to understand how to mess with them. Also work on bind and function expression as shown above to be able to change reduce to work with many modified helper functions
+
+// make function that reduces characters obj down and counts number of dead
+// reduce helper function needs to check character dictionary if the "died" keyword has a value
+
+function getTotalDead(totalDead, currentCharObj) {
+    if (currentCharObj.died !== "") {
+        return totalDead += 1;
+    }
+    return totalDead;
+}
+
+function getNumberOfDead(characterObj) {
+    let totalDead = characterObj.reduce(getTotalDead, 0);
+    return totalDead;
+}
+
+// console.log(`There are ${getNumberOfDead(characters)} characters dead in the array.`);
+// works :)
+// accidentally named the function getTotalDead as totalDead, which conflicted with the variable declaration in getNumberOfDead
+
 
