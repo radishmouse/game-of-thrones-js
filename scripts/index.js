@@ -128,5 +128,51 @@ console.log(`The actor that played Hot Pie is ${getHotPieActor(characters)}.`)
 // works :)
 // Decided to do it as filtering rather than reducing as it looks a bit cleaner. Plus I liked the name isHotPie. Makes the return a bit more complicated by having to access an array.
 
+// TODO: How many characters are *not* in the tv show?
+// Could reduce or filter and get the length of the array here. I'll reduce for more practice.
+// use helperFn to find out if "tvSeries" has a length of 0
+
+function sumCharactersNotOnTV(currentCharactersNotOnTV, currentCharObj) {
+    if (currentCharObj.tvSeries.length !== 1) {
+        currentCharactersNotOnTV += 1;
+        return currentCharactersNotOnTV;
+    }
+    return currentCharactersNotOnTV;
+}
+
+function getCharactersNotOnTV(charObjArray) {
+    let totalCharactersNotOnTV = charObjArray.reduce(sumCharactersNotOnTV, 0);
+    return totalCharactersNotOnTV;
+}
+
+console.log(`There are ${getCharactersNotOnTV(characters)} characters in the books and not in the show.`);
+
+// works :)
+// Had to play around in the console to figure out why tvSeries length was 1 instead of zero. They automatically have a "" in the array, making the length automatically one
+
+// TODO: Produce a list of characters with the last name "Targaryen"
+// I want to filter the array to the just objects with the last name of "Targaryen". This means I need to check the object name, and either check the last 9 characters of the string, or I need to split the string into two parts at the space ----- helperFn
+// Then I want to call the helper function to filter the array. Then I want to map the resulting array to get just the names. Return the list, maybe make it pretty
+
+function isTargaryen(charObj) {
+    return (charObj.name.split(" ")[1] === "Targaryen") // last bracket [0] is first name [1] is last name
+}
+
+function getName(charObj) {
+    return charObj.name;
+}
+
+function getTargaryens(charObjArray) {
+    const targaryenObjs = charObjArray.filter(isTargaryen);
+    const targaryenArray = targaryenObjs.map(getName);
+    return targaryenArray;
+}
+
+console.log(`All of the Targaryens are:
+
+${getTargaryens(characters)}`);
+
+// works...sort of. Seems the data has multiple instances of some of the targaryens due to having the same name (aegon the XIII etc.) Maybe add something to make it prettier or clean it up?
+// Had to play with split a bit to make it work like I intended.
 
 
