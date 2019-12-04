@@ -74,3 +74,22 @@ function getNumberOfDead(characterObj) {
 // accidentally named the function getTotalDead as totalDead, which conflicted with the variable declaration in getNumberOfDead
 
 
+// find the person with the most titles
+function getMostTitles(currentObjMostTitles, currentCharObj) {
+    if (currentObjMostTitles.titles.length >= currentCharObj.titles.length) {
+        return currentObjMostTitles;
+    }
+    return currentCharObj;
+}
+
+function getCharacterMostTitles(characterObj) {
+    let charObjWithMostTitles = characterObj.reduce(getMostTitles, characterObj[0]);
+    return charObjWithMostTitles;
+}
+
+const characterWithMostTitles = getCharacterMostTitles(characters);
+console.log(`The character with the most titles is ${characterWithMostTitles.name}, and they have ${characterWithMostTitles.titles.length} titles.`)
+// Works :)
+// Mistyped return for getCharacterMostTitles. Need to work on shortening variable name length. It's getting confusing.
+
+// find how many people have 
