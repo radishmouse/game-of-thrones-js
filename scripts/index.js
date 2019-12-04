@@ -8,8 +8,8 @@ function isAName(totalANames, currentCharObj) {
     return totalANames;
 }
 
-function getNumberOfANames(characterObj) {
-    let sumOfANames = characterObj.reduce(isAName, 0);
+function getNumberOfANames(charObjArray) {
+    let sumOfANames = charObjArray.reduce(isAName, 0);
     return sumOfANames;
 }
 
@@ -27,8 +27,8 @@ console.log(`There are ${getNumberOfANames(characters)} characters with a name t
 //     return totalAnyNames;
 // }
 
-// function getNumberOfAnyNames(characterObj, character) {
-//     let sumOfANames = characterObj.reduce(isAnyLetterName.bind(null, null, null, character), 0);
+// function getNumberOfAnyNames(charObjArray, character) {
+//     let sumOfANames = charObjArray.reduce(isAnyLetterName.bind(null, null, null, character), 0);
 //     return sumOfANames;
 // }
 
@@ -44,8 +44,8 @@ function isZName(totalZNames, currentCharObj) {
     return totalZNames;
 }
 
-function getNumberOfZNames(characterObj) {
-    let sumOfZNames = characterObj.reduce(isZName, 0);
+function getNumberOfZNames(charObjArray) {
+    let sumOfZNames = charObjArray.reduce(isZName, 0);
     return sumOfZNames;
 }
 
@@ -64,8 +64,8 @@ function getTotalDead(totalDead, currentCharObj) {
     return totalDead;
 }
 
-function getNumberOfDead(characterObj) {
-    let totalDead = characterObj.reduce(getTotalDead, 0);
+function getNumberOfDead(charObjArray) {
+    let totalDead = charObjArray.reduce(getTotalDead, 0);
     return totalDead;
 }
 
@@ -82,8 +82,8 @@ function getMostTitles(currentObjMostTitles, currentCharObj) {
     return currentCharObj;
 }
 
-function getCharacterMostTitles(characterObj) {
-    let charObjWithMostTitles = characterObj.reduce(getMostTitles, characterObj[0]);
+function getCharacterMostTitles(charObjArray) {
+    let charObjWithMostTitles = charObjArray.reduce(getMostTitles, charObjArray[0]);
     return charObjWithMostTitles;
 }
 
@@ -92,4 +92,21 @@ console.log(`The character with the most titles is ${characterWithMostTitles.nam
 // Works :)
 // Mistyped return for getCharacterMostTitles. Need to work on shortening variable name length. It's getting confusing.
 
-// find how many people have 
+// find how many people have culture: "Valyrian"
+function sumValyrians(currentTotalValyrians, currentCharObj) {
+    if (currentCharObj.culture === "Valyrian") {
+        currentTotalValyrians += 1;
+        return currentTotalValyrians;
+    }
+    return totalValyrians;
+}
+
+function getTotalValyrians(charObjArray) {
+    let totalValyrians = charObjArray.reduce(sumValyrians, 0);
+    return totalValyrians;
+}
+
+console.log(`Total number of Valyrians: ${getTotalValyrians(characters)}`);
+// works :)
+// getting better at naming things and getting more comfy with reducing arrays
+
