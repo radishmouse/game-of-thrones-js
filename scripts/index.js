@@ -175,4 +175,59 @@ ${getTargaryens(characters)}`);
 // works...sort of. Seems the data has multiple instances of some of the targaryens due to having the same name (aegon the XIII etc.) Maybe add something to make it prettier or clean it up?
 // Had to play with split a bit to make it work like I intended.
 
+// TODO: 1. Get all the houses (maybe pull from the api or just copy and paste) DONE
+// 2. Go through the houses and make an array of house names
+// 3. Go through the characters and total the number of each type of house (map or filter or reduce?) maybe use the house in part 2?
+// 4. Find a way to use js to plot a graph
 
+function getAllegiances(charObjArray) {
+    let allAllegiances = [];
+    for (let charObj of charObjArray) {
+        for (let allegiance of charObj.allegiances) {
+            if (allegiance.length === 1) {
+                continue;
+            } else{
+            allAllegiances.push(allegiance.split("/houses/")[1])
+            }
+        }
+    }
+    // console.log(allAllegiances) // holy crap that worked
+    return allAllegiances;
+}
+
+// maybe could have used map or filter to great effect, but making a different sized list, which complicates things
+
+// Got tired and needed to go drink/trivia, so shortened problem expectations. Just going to make a histogram of how many times each thing is in the list.
+function getMax(currentMax, item) {
+    if (currentMax > item) {
+        return currentMax;
+    }
+    return item
+}
+function makeNumber(item) {
+    return Number(item);
+}
+
+function makeXCoordinates(length) {
+    let xCoordinates = [];
+    for (let i = 1; i<length; i++) {
+        xCoordinates.push(i);
+    }
+    return xCoordinates;
+}
+
+
+let allAllegiances = getAllegiances(characters);
+let allAllegiancesNumbers = allAllegiances.map(makeNumber);
+let maxAllegiance = allAllegiancesNumbers.reduce(getMax, 0);
+console.log(maxAllegiance);
+let xCoordinates = makeXCoordinates(444); // makes x axis equal to max house number
+let data = {
+    histfunc: "count",
+    y: allAllegiancesNumbers,
+    x: xCoordinates,
+    type: "histogram",
+    name: "count",
+};
+
+Plotly.newPlot("myDiv", data);
