@@ -98,7 +98,7 @@ function sumValyrians(currentTotalValyrians, currentCharObj) {
         currentTotalValyrians += 1;
         return currentTotalValyrians;
     }
-    return totalValyrians;
+    return currentTotalValyrians;
 }
 
 function getTotalValyrians(charObjArray) {
