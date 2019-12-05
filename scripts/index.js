@@ -198,36 +198,62 @@ function getAllegiances(charObjArray) {
 // maybe could have used map or filter to great effect, but making a different sized list, which complicates things
 
 // Got tired and needed to go drink/trivia, so shortened problem expectations. Just going to make a histogram of how many times each thing is in the list.
-function getMax(currentMax, item) {
-    if (currentMax > item) {
-        return currentMax;
-    }
-    return item
-}
+
+// getMax unnecessary without Plotly
+// function getMax(currentMax, item) {
+//     if (currentMax > item) {
+//         return currentMax;
+//     }
+//     return item
+// }
+
 function makeNumber(item) {
     return Number(item);
 }
 
-function makeXCoordinates(length) {
-    let xCoordinates = [];
-    for (let i = 1; i<length; i++) {
-        xCoordinates.push(i);
-    }
-    return xCoordinates;
-}
+// makeXCoordinates unnecessary without Plotly
+// function makeXCoordinates(length) {
+//     let xCoordinates = [];
+//     for (let i = 1; i<length; i++) {
+//         xCoordinates.push(i);
+//     }
+//     return xCoordinates;
+// }
 
+function createHistogram(allegiances) {
+    let histogram = {};
+    allegiances.sort();
+    // takes an array of all the allegiances in the characters object, creates a key for each house, and then sets the value as an array of the index numbers
+    for (let i=0; i<allegiances.length; i++) {
+        if (histogram[allegiances[i]] === undefined) {
+            histogram[allegiances[i]] = [i];
+        } else {
+            histogram[allegiances[i]].push(i)
+        }
+    }
+    // console.log(histogram); it works again!!!
+    // going to make the key = to the length of the array to create the true histogram
+    for (let key of Object.keys(histogram)) {
+        histogram[key] = histogram[key].length;
+    }
+    // console.log(histogram); //it works !!!!!
+    return histogram
+}
 
 let allAllegiances = getAllegiances(characters);
 let allAllegiancesNumbers = allAllegiances.map(makeNumber);
-let maxAllegiance = allAllegiancesNumbers.reduce(getMax, 0);
-console.log(maxAllegiance);
-let xCoordinates = makeXCoordinates(444); // makes x axis equal to max house number
-let data = {
-    histfunc: "count",
-    y: allAllegiancesNumbers,
-    x: xCoordinates,
-    type: "histogram",
-    name: "count",
-};
+console.log(createHistogram(allAllegiancesNumbers));
+// all of the below is unnecessary due to not using Plotly
+// let maxAllegiance = allAllegiancesNumbers.reduce(getMax, 0);
+// console.log(maxAllegiance);
+// let xCoordinates = makeXCoordinates(444); // makes x axis equal to max house number
+// Below is attempt at graphing histogram. It failed.
+// let data = {
+//     histfunc: "count",
+//     y: allAllegiancesNumbers,
+//     x: xCoordinates,
+//     type: "histogram",
+//     name: "count",
+// };
 
-Plotly.newPlot("myDiv", data);
+// Plotly.newPlot("myDiv", data);
